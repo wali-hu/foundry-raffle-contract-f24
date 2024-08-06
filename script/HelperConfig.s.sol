@@ -10,7 +10,7 @@ abstract contract CodeConstants {
     uint96 public MOCK_GAS_PRICE_LINK = 1e9;
 
     // Link /  Eth price
-    int256 public MOCK_WEI_PER_UNIT_LINK = 4e18;
+    int256 public MOCK_WEI_PER_UNIT_LINK = 4e15;
 
     uint256 public constant ETH_SEPOLIA_CHAIN_ID = 1115511;
     uint256 public constant LOCAL_CHAIN_ID = 31337;
@@ -45,6 +45,10 @@ contract HelperConfig is CodeConstants, Script {
         } else {
             revert HelperConfig__InvalidChainId();
         }
+    }
+
+    function getConfig() public returns (NetworkConfig memory) {
+        return getConfigByChainId(block.chainid);
     }
 
     function getSepoliaEthConfig() public pure returns (NetworkConfig memory) {
