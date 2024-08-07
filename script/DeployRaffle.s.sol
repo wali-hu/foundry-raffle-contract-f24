@@ -20,7 +20,7 @@ contract DeployRaffle is Script {
             config.interval,
             config.vrfCoordinator,
             config.gaslane,
-            config.subcriptionId,
+            config.subscriptionId,
             config.callbackGasLimit
         );
         vm.stopBroadcast();
